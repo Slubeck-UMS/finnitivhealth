@@ -1,0 +1,146 @@
+import React from "react";
+import { ArrowRight, ChevronRight, Eye, Zap, Target } from "lucide-react";
+import { COLORS, IMG, Eyebrow, Button, SightpathMark } from "../shared";
+
+export default function SightpathPage({ navigate }) {
+  return (
+    <div>
+      <section className="relative min-h-[90vh] flex items-end" style={{ backgroundColor: COLORS.ink }}>
+        <div className="absolute inset-0">
+          <img src={IMG.heroSightpath} alt="" className="w-full h-full object-cover opacity-60" />
+          <div className="absolute inset-0" style={{ background: `linear-gradient(180deg, ${COLORS.ink}DD 0%, ${COLORS.ink}44 40%, ${COLORS.ink}F0 100%)` }} />
+        </div>
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 pb-20 pt-40 w-full text-white">
+          <div className="flex items-center gap-3 opacity-80">
+            <button onClick={() => navigate("home")} className="text-xs tracking-wider uppercase hover:underline">FinnitivHealth</button>
+            <ChevronRight size={14} /><span className="text-xs tracking-wider uppercase">Sightpath</span>
+          </div>
+          <div className="mt-8"><SightpathMark color="#fff" /></div>
+          <h1 className="font-display font-light text-[44px] md:text-[72px] lg:text-[92px] leading-[0.98] mt-8 max-w-[1100px]">
+            Mobile ophthalmic surgery, <em style={{ color: COLORS.sand, fontWeight: 300 }}>delivered with precision.</em>
+          </h1>
+          <div className="mt-10 grid md:grid-cols-12 gap-8">
+            <p className="md:col-span-6 text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.8)" }}>
+              Sightpath partners with hospitals, ASCs, and ophthalmology groups to bring cataract, femto, and refractive surgical technology — plus the clinical team to run it — to your facility on a schedule built around your practice.
+            </p>
+            <div className="md:col-span-6 flex items-end md:justify-end">
+              <Button variant="light" onClick={() => navigate("contact")}>Start a Sightpath program</Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style={{ backgroundColor: COLORS.sand }}>
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-14 grid grid-cols-2 md:grid-cols-4 gap-8">
+          {[["1,003+", "ophthalmic surgeons"], ["649", "facilities served"], ["47", "states covered"], ["3M+", "eyes treated"]].map(([n, l], i) => (
+            <div key={i}>
+              <div className="font-display text-4xl lg:text-5xl font-light" style={{ color: COLORS.ink }}>{n}</div>
+              <div className="text-sm mt-2" style={{ color: COLORS.navy }}>{l}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="py-28 lg:py-36" style={{ backgroundColor: "#fff" }}>
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-5">
+              <Eyebrow color={COLORS.amber}>Three decades of vision</Eyebrow>
+              <h2 className="font-display text-4xl lg:text-6xl font-light mt-5 leading-[1.02]">
+                Surgical capability, <em style={{ color: COLORS.amber }}>on the road.</em>
+              </h2>
+            </div>
+            <div className="lg:col-span-7">
+              <p className="text-lg leading-relaxed" style={{ color: COLORS.navy }}>
+                Sightpath was founded on a simple idea: the best ophthalmic technology shouldn't be limited to a handful of flagship facilities. Our mobile and fixed-site programs deliver surgical-grade phaco, femto, and refractive platforms — complete with trained technologists — to wherever care is needed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-28 lg:py-36" style={{ backgroundColor: COLORS.mist }}>
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+          <div className="mb-16">
+            <Eyebrow>Core services</Eyebrow>
+            <h2 className="font-display text-4xl lg:text-5xl font-light mt-5 leading-[1.05] max-w-3xl">
+              A full ophthalmology platform — <em style={{ color: COLORS.teal }}>mobile or fixed.</em>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { icon: Eye, t: "Cataract Surgery", d: "Mobile and fixed cataract programs with phacoemulsification platforms and full procedural support.", route: "sol-cataract" },
+              { icon: Zap, t: "Femtosecond Surgery", d: "Femtosecond laser cataract surgery deployed to your facility as part of a fully managed program.", route: "sol-femto" },
+              { icon: Target, t: "Refractive / LASIK", d: "Complete LASIK and refractive surgery solutions for mobile and fixed-site deployment.", route: "sol-refractive" },
+            ].map(({ icon: Icon, t, d, route }, i) => (
+              <button key={i} onClick={() => navigate(route)} className="group p-10 bg-white text-left hover-lift" style={{ border: `1px solid ${COLORS.line}` }}>
+                <div className="w-12 h-12 flex items-center justify-center" style={{ backgroundColor: COLORS.sand, color: COLORS.amber }}>
+                  <Icon size={22} />
+                </div>
+                <h3 className="font-display text-2xl mt-6">{t}</h3>
+                <p className="mt-3 text-[15px] leading-relaxed" style={{ color: COLORS.muted }}>{d}</p>
+                <div className="mt-5 inline-flex items-center gap-2 font-medium text-sm">
+                  Learn more <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-28 lg:py-36" style={{ backgroundColor: "#fff" }}>
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+          <div className="grid lg:grid-cols-12 gap-6">
+            <div className="lg:col-span-5 flex flex-col justify-between">
+              <div>
+                <Eyebrow>The fleet</Eyebrow>
+                <h2 className="font-display text-4xl lg:text-5xl font-light mt-5 leading-[1.05]">
+                  Every truck is an operating suite on wheels.
+                </h2>
+                <p className="mt-6 text-lg leading-relaxed" style={{ color: COLORS.navy }}>
+                  Our mobile units use patented air-ride technology to safely transport highly complex ophthalmic equipment. When our unit arrives at your facility, every piece of equipment is calibrated and ready.
+                </p>
+              </div>
+              <div className="mt-10 grid grid-cols-2 gap-6">
+                {[["75", "cataract mobile units"], ["25", "fixed sites"], ["8-case", "typical case minimum"], ["Weekly", "scheduled routes"]].map(([n, l], i) => (
+                  <div key={i}>
+                    <div className="font-display text-3xl font-light" style={{ color: COLORS.amber }}>{n}</div>
+                    <div className="text-sm mt-1" style={{ color: COLORS.muted }}>{l}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="lg:col-span-7 flex flex-col gap-6">
+              <div className="overflow-hidden h-[360px]"><img src={IMG.truckField} alt="" className="w-full h-full object-cover" /></div>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="overflow-hidden h-[220px]"><img src={IMG.eyeClose} alt="" className="w-full h-full object-cover" /></div>
+                <div className="overflow-hidden h-[220px]"><img src={IMG.surgery} alt="" className="w-full h-full object-cover" /></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative py-24 lg:py-36 overflow-hidden" style={{ backgroundColor: COLORS.ink }}>
+        <div className="absolute inset-0 opacity-30" style={{ backgroundImage: `url(${IMG.eyeClose})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+        <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${COLORS.ink}F0 30%, ${COLORS.amber}30 100%)` }} />
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 text-white">
+          <div className="grid lg:grid-cols-12 gap-12 items-end">
+            <div className="lg:col-span-8">
+              <Eyebrow color="rgba(255,255,255,0.7)">Start with Sightpath</Eyebrow>
+              <h2 className="font-display text-4xl lg:text-7xl font-light mt-5 leading-[1.02]">
+                Bring surgical-grade ophthalmology <em style={{ color: COLORS.sand }}>to your facility.</em>
+              </h2>
+            </div>
+            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end">
+              <Button variant="light" onClick={() => navigate("contact")}>Request a program plan</Button>
+              <Button variant="ghost" onClick={() => navigate("team-sightpath")}>
+                <span style={{ color: "#fff" }}>Meet the Sightpath team</span>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

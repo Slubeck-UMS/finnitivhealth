@@ -1,0 +1,98 @@
+# FinnitivHealth Website
+
+Deploy-ready React site for FinnitivHealth.
+
+## How to deploy (15 minutes, no coding required)
+
+### Step 1 — Unzip the folder
+Unzip `finnitivhealth.zip` on your computer. You'll see a folder called `finnitivhealth` with a bunch of files inside.
+
+### Step 2 — Create a free Vercel account
+1. Go to https://vercel.com
+2. Click **"Sign Up"** in the top right
+3. Click **"Continue with GitHub"** (easiest — uses the GitHub account you already have)
+4. Approve the permissions
+
+### Step 3 — Deploy using drag-and-drop
+1. Once signed in, you'll land on the Vercel dashboard
+2. Click **"Add New..."** button → select **"Project"**
+3. You'll see a page asking you to "Import Git Repository"
+4. Look for the option **"Or import from a third-party Git provider"** or scroll down to find **"Clone Template"** / **"Deploy"** options
+5. **Easier alternative:** Go directly to https://vercel.com/new
+6. At the bottom of that page, there's often a **"Deploy"** button with a folder icon — or you can scroll to find **"Upload"** options
+
+### Step 3 Alternative (recommended) — Use Vercel CLI drag-drop
+Actually the simplest way is:
+1. Go to https://vercel.com/new
+2. Click the **"Import Git Repository"** section
+3. If you don't have a repo, click **"Create a Git Repository"** — Vercel will walk you through creating one in 2 clicks
+4. Upload your `finnitivhealth` folder to that repo
+5. Vercel auto-detects it's a Vite project and deploys
+
+### Step 3 Alternative B (even simpler) — Upload via GitHub
+1. Go to https://github.com and sign in
+2. Click the **"+"** icon top right → **"New repository"**
+3. Name it `finnitivhealth` → click **"Create repository"**
+4. On the new empty repo page, click **"uploading an existing file"** link
+5. Drag your unzipped `finnitivhealth` folder contents into the upload area
+6. Scroll down, click **"Commit changes"**
+7. Now go to https://vercel.com/new
+8. You'll see your `finnitivhealth` repo listed → click **"Import"**
+9. Click **"Deploy"** (no settings to change)
+10. Wait 60 seconds
+11. You'll get a live URL like `finnitivhealth-abc123.vercel.app`
+
+### Step 4 — Every time you want to update the site
+1. Edit files on your computer
+2. Push changes to GitHub (drag-drop on github.com works)
+3. Vercel auto-deploys within 30 seconds
+
+## File structure
+
+```
+finnitivhealth/
+├── index.html              ← entry HTML file
+├── package.json            ← dependencies
+├── vite.config.js          ← build config
+├── vercel.json             ← Vercel routing config
+└── src/
+    ├── main.jsx            ← React entry
+    ├── App.jsx             ← router
+    ├── shared.jsx          ← Nav, Footer, design tokens
+    └── pages/
+        ├── Home.jsx
+        ├── SightpathPage.jsx
+        ├── UMSPage.jsx
+        ├── Solutions.jsx
+        ├── LeadershipTeam.jsx
+        ├── Careers.jsx
+        ├── News.jsx
+        └── Contact.jsx
+```
+
+## Pages
+
+- **/** — Homepage
+- **#/sightpath** — Sightpath (ophthalmology)
+- **#/ums** — UMS (urology)
+- **#/solutions** — Solutions hub (all 6 procedures)
+- **#/sol-cataract, sol-femto, sol-refractive** — Sightpath solutions
+- **#/sol-urs, sol-eswl, sol-mrfusion** — UMS solutions
+- **#/leadership** — Leadership team
+- **#/team-sightpath**, **#/team-ums** — Team pages
+- **#/careers** — Careers hub
+- **#/careers-sightpath**, **#/careers-ums** — Brand-specific roles
+- **#/news** — News & announcements
+- **#/contact** — Customer inquiry form
+
+## To edit content
+
+All real data lives in these files:
+- **Stats / copy:** In each page file under `src/pages/`
+- **Leadership bios:** `src/pages/LeadershipTeam.jsx`
+- **News articles:** `src/pages/News.jsx` (look for the `NEWS` array at the top)
+- **Job listings:** `src/pages/Careers.jsx`
+- **Solution details:** `src/pages/Solutions.jsx` (look for `SOLUTIONS_DATA`)
+- **OEM & facility logos:** `src/shared.jsx` (look for `FACILITY_NAMES` and `OEM_NAMES`)
+- **Colors:** `src/shared.jsx` (look for `COLORS`)
+- **Images:** `src/shared.jsx` (look for `IMG`)
